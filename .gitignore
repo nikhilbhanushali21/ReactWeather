@@ -1,5 +1,3 @@
 # Dependency directories
-node_modules
-jspm_packages
-semanticui
-semantic
+node_modules/
+
