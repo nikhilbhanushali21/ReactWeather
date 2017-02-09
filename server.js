@@ -5,15 +5,15 @@ var app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(function (req, res, next){
-    if (req.headers['x-forwarded-porto'] === 'http') {
-        next();
+    if (req.headers['x-forwarded-porto'] === 'https') {
+            res.redirect('http://' + req.hostname + req.url);
     } else {
-        res.redirect('http://' + req.hostname + req.url);
+        next();
     }
 });
 
 app.use(express.static('public'));
 
 app.listen(PORT, function(){
-    console.log('Express server is up on port 3000' + PORT);
+    console.log('Express server is up on port ' + PORT);
 });
